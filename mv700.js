@@ -71,10 +71,9 @@ require('getmac').getMac(function(err,macAddress){
                 }
             }
 
-            console.log('output', output);
-            var topic = '' //'/' + deviceType + '/' + deviceID + '/' + sPort + '/data'
-            //console.log('publish to ', '/' + deviceType + '/' + deviceID + '/' + sPort + '/data', ' received data: ', data.toString());
+            console.log('publish to ', 'mv700', ' received data: ', output);
             client.publish('mv700', JSON.stringify(output));
+            //client.publish('/' + deviceType + '/' + deviceID + '/' + sPort + '/data', JSON.stringify(output));
         });
 
         serial.on('open', function () {
